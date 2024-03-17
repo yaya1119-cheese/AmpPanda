@@ -1,33 +1,70 @@
-// curl -X POST "https://accounts.spotify.com/api/token" \
-//      -H "Content-Type: application/x-www-form-urlencoded" \
-//      -d "grant_type=client_credentials&client_id=2eee55c4cd1b4683bea1e247fe4b1517&client_secret=11392ad9b1354331b85a80903ed25a0a"
+
+//curl -X POST "https://accounts.spotify.com/api/token" \
+//-H "Content-Type: application/x-www-form-urlencoded" \
+//-d "grant_type=client_credentials&client_id=2eee55c4cd1b4683bea1e247fe4b1517&client_secret=11392ad9b1354331b85a80903ed25a0a"
 
 
 
-// BQD9KqE4kg9Q_D_jomoH114P9j1AI05Z8XOR01G8sn8XadYO1XMWzkfrnuPveI_lagZBqzlsaChABv-E6AupCE06Q4kViKQrvNmAjpE5S1Rw443QNaQ
-let data = async ()=> {
+document.addEventListener("DOMContentLoaded", function() {
+
+    let trackData = {};
+
+
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
     
-    let res = await fetch('https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl',{
-        headers:{
-            "Authorization": "Bearer BQD9KqE4kg9Q_D_jomoH114P9j1AI05Z8XOR01G8sn8XadYO1XMWzkfrnuPveI_lagZBqzlsaChABv-E6AupCE06Q4kViKQrvNmAjpE5S1Rw443QNaQ"
-        }
+    searchButton.addEventListener('click', function () {
+        console.log("Performing Track Search");
+        let searchText = searchInput.ariaValueMax;
+        console.log("Search text:" + searchText)
+    
+        let searchURL = `https://api.spotify.com/v1/search?q=${searchInput}&type=track&limit=1`
+    
+        fetch(searchURL, {
+            headers: {Authorization: "Bearer BQDEq7axwNo8NNMeFQW2e1TICVQS-J-Vy2klxmKYK1hIP_kdWGdJVklgc2Mng0OzoDmWkkCTeR-PL9ccVrqDTP6zROyTJXzKarKWMBNLeiyLAn6g3O8"}
+        })
+    
+            .then(resp => resp.json())
+            .then(r => {
+                console.log(JSON.stringify(r));
+                trackData = r;
+                displayTrackInfo();
+            }
+            )
+    
+    
+    
+    
+    
     });
-    let data = await res.json();
-    const trackData = { _ }
-    let data async () => {
-        let res = await ..
-        let trackData = await res.json()
-        console.log()
+    function displayTrackInfo() {
+        const albumNameElement = document.getElementById('albumName')
+        const ArtistNameElement = document.getElementById('artistName')
+        const TrackNameElement = document.getElementById('trackName')
+        const durationElement = document.getElementById('duration')
+        const populatiryElement = document.getElementById('popularity')
+        const albumImageElement = document.getElementById('albumImage')
+        
 
-        return trackData;
+        albumNameElement.textContent = trackData.tracks.items[0].album.name;
+        ArtistNameElement.textContent = trackData.tracks.items[0].album.artists[0].name;
+        TrackNameElement.textContent = trackData.tracks.items[0].name;
+        durationElement.textContent = formatDuration(trackData.tracks.items[0].duration_ms)
+        populatiryElement.textContent = trackData.tracks.items[0].popularity;
+        albumImageElement.src = trackData.tracks.items[0].album.images[0].url;
+    };
+
+    function formatDuration(duration) {
+        const minutes= Math.floor(duration / 60000);
+        const seconds = ((duration % 60000) / 1000).toFixed(0);
+        return `${minutes}:${(seconds < 10 ? '0' : '')}${seconds}`;
     }
 
-    let trackData = await data;
-
-}
 
 
 
- 
+
+});
+
 
 
