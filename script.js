@@ -1,8 +1,6 @@
-
 //curl -X POST "https://accounts.spotify.com/api/token" \
 //-H "Content-Type: application/x-www-form-urlencoded" \
 //-d "grant_type=client_credentials&client_id=2eee55c4cd1b4683bea1e247fe4b1517&client_secret=11392ad9b1354331b85a80903ed25a0a"
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -21,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let searchURL = `https://api.spotify.com/v1/search?q=${searchInput}&type=track&limit=1`
     
         fetch(searchURL, {
-            headers: {Authorization: "Bearer BQDEq7axwNo8NNMeFQW2e1TICVQS-J-Vy2klxmKYK1hIP_kdWGdJVklgc2Mng0OzoDmWkkCTeR-PL9ccVrqDTP6zROyTJXzKarKWMBNLeiyLAn6g3O8"}
+            headers: {Authorization: " Bearer BQBsD_G9IanxMsxUyLYV3CGVWK8dDUj6mF_ju3Bu-Rfe6RSut7pGMC2QC2WE0C9N1cNf_GJvjyxcbjdUfUjK9EueEqwz9RTei3nTBow1LowY4s6ZgEU"}
         })
     
             .then(resp => resp.json())
