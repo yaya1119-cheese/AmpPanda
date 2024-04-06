@@ -1,0 +1,36 @@
+html {
+    background-color: darkslategrey;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+#albumName {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+#artistName {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#trackName {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#duration {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#popularity {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+

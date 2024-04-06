@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (){
     
             let searchURL  = `https://api.spotify.com/v1/search?q=${searchText}&type=track&limit=1`;
             fetch(searchURL, {
-                headers: {Authorization:  "Bearer BQDgS60HJQM-tRJhbmcGiY_dGCot1wMfy0F1KKQqTtGMUYC0zJehMpkoaYidskIY3cpldrRNRXJhPA08AYhJPR2kg44q0J4q8vldq19Cq2cfpQRM0ro"}
+                headers: {Authorization:  "Bearer BQBC_J361rtYcRKu4Eti1HRd-TG4FQpxVolmhQMKouEK0Hsb_YA4zX-aNOHZxH8jTcebb10HRtoYK6gNY9EP_j_GU_E3ZMS4rNJIG4wyC3DGJvG8jqs"}
             })
             .then(resp => resp.json())
             .then(r => {
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function (){
             artistNameElement.textContent = trackData.tracks.items[0].album.artists[0].name;
             trackNameElement.textContent = trackData.tracks.items[0].name;
             durationElement.textContent = formatDuration(trackData.tracks.items[0].duration_ms);
-            // popularityElement.textContent = trackData.tracks.items[0].popularity;
+            popularityElement.textContent = trackData.tracks.items[0].popularity;
             albumImageElement.src = trackData.tracks.items[0].album.images[0].url;
-        }
+        }   
         function formatDuration(duration){
             const minutes = Math.floor(duration/6000);
             const seconds = ((duration % 6000) / 1000).toFixed(0);
