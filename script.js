@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (){
     
             let searchURL  = `https://api.spotify.com/v1/search?q=${searchText}&type=track&limit=1`;
             fetch(searchURL, {
-                headers: {Authorization:  "Bearer BQBC_J361rtYcRKu4Eti1HRd-TG4FQpxVolmhQMKouEK0Hsb_YA4zX-aNOHZxH8jTcebb10HRtoYK6gNY9EP_j_GU_E3ZMS4rNJIG4wyC3DGJvG8jqs"}
+                headers: {Authorization:  "Bearer BQBpjhq68yu8uDB2qYsKBiFp5GzE8JVPSWpDKgmt6wSZ7SUhNosdOIDVZhjvMcNNXfk_OMZc4D2PMGB-s3vuw2hTCCQ3ekjJRM-Xuvwj3cVusS2avrs"}
             })
             .then(resp => resp.json())
             .then(r => {
